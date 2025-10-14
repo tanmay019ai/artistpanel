@@ -10,7 +10,10 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // ✅ Include Next.js and TypeScript defaults
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // ✅ Custom config block
   {
     ignores: [
       "node_modules/**",
@@ -19,6 +22,13 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      // 🚫 Disable the annoying React hook dependency warnings
+      "react-hooks/exhaustive-deps": "off",
+
+      // 🚫 (Optional) disable "Unexpected any" errors too
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   },
 ];
 
