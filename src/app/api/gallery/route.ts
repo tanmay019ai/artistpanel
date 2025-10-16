@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // 🌐 Point this to your deployed portfolio API endpoint
 const GALLERY_API =
-  process.env.GALLERY_API_URL || 'http://localhost:3001/api/gallery';
+  process.env.GALLERY_API_URL || 'https://arista-alpha.vercel.app/api/gallery';
 
 /**
  * ✅ GET — Fetch gallery data from the main (portfolio) API
