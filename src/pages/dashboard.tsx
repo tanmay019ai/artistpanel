@@ -5,11 +5,13 @@ import { Brush, BookOpen, ImageIcon, Mail, LogOut } from 'lucide-react';
 export default function Dashboard({
   onLogout,
   onNavigateAbout,
-  onNavigateWritings, // ✅ Added new prop
+  onNavigateWritings,
+  onNavigateGallery, // ✅ added gallery navigation
 }: {
   onLogout: () => void;
   onNavigateAbout: () => void;
   onNavigateWritings: () => void;
+  onNavigateGallery: () => void;
 }) {
   const [message] = useState('Welcome to Your Artist Dashboard');
 
@@ -27,7 +29,7 @@ export default function Dashboard({
         </p>
       </header>
 
-      {/* Main Dashboard Cards */}
+      {/* Dashboard Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-6xl mb-12">
         {/* About */}
         <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6 flex flex-col items-center text-center">
@@ -61,10 +63,10 @@ export default function Dashboard({
           <h2 className="text-2xl font-semibold mb-2 text-stone-800">Gallery</h2>
           <p className="text-stone-500 text-sm">Upload or modify artworks.</p>
           <button
+            onClick={onNavigateGallery}
             className="mt-4 bg-amber-600 text-white py-2 px-4 rounded-lg hover:bg-amber-700 transition"
-            disabled
           >
-            Coming Soon
+            Edit
           </button>
         </div>
 
@@ -74,15 +76,14 @@ export default function Dashboard({
           <h2 className="text-2xl font-semibold mb-2 text-stone-800">Contacts</h2>
           <p className="text-stone-500 text-sm">View messages from your website.</p>
           <button
-            className="mt-4 bg-amber-600 text-white py-2 px-4 rounded-lg hover:bg-amber-700 transition"
-            disabled
+            className="mt-4 bg-gray-300 text-white py-2 px-4 rounded-lg cursor-not-allowed"
           >
             Coming Soon
           </button>
         </div>
       </div>
 
-      {/* Logout Button */}
+      {/* Logout */}
       <button
         onClick={onLogout}
         className="bg-gray-600 text-white py-3 px-8 rounded-xl hover:bg-gray-700 transition text-lg shadow-md flex items-center gap-2"
